@@ -87,7 +87,8 @@ func (m *Migrate) createCollectionIfNotExist(name string) error {
 }
 
 func (m *Migrate) getCollections() (collections []collectionSpecification, err error) {
-	filter := bson.D{bson.E{Key: "type", Value: "collection"}}
+	//filter := bson.D{bson.E{Key: "type", Value: "collection"}}
+	filter := bson.D{}
 	options := options.ListCollections().SetNameOnly(true)
 
 	cursor, err := m.db.ListCollections(context.Background(), filter, options)
